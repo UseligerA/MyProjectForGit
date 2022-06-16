@@ -15,18 +15,18 @@ import java.util.Optional;
 
 @Service
 public class ClientService implements UserDetailsService {
-    @PersistenceContext
-    private EntityManager entityManager;
+    /*@PersistenceContext
+    private EntityManager entityManager;*/
 
     ClientRepository clientRepository;
-    @Autowired
-    RoleRepository roleRepository;
+ /*   @Autowired
+    RoleRepository roleRepository;*/
 
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        Client client = clientRepository.findByUsername(userName);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Client client = clientRepository.findByUsername(username);
     if(client == null){
         throw new UsernameNotFoundException("Client not found");
     }
