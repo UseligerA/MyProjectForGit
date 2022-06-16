@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Salon Beauty</title>
+
+</head>
+<body>
+<p><img th:src="@{\images\BeautySalon.png}"></p>
+<h1> Добро пожаловать в Beauty Salon</h1>
+<h3>У нас вы можете возспользоваться услугами высококлассных парикмахеров, мастеров ногтевого сервиса и бровистов</h3>
+
+
+<a th:href="@{recording}" id="recording">Записаться к нам</a>
+<a th:href="@{communications}" id="communications">Контакты</a>
+<br/>
+<a th:href="@{masters}" id="masters">Наши мастера</a>
+<a th:href="@{schedule}" id="schedule">Расписание клиентов</a>
+<br/>
+<a th:href="@{login}" id="login">Войти</a>
+<a th:href="@{registration}" id="registration">Регистрация</a>
+</body>
+</html>

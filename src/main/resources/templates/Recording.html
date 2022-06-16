@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Запись</title>
+</head>
+<body>
+<p><img th:src="@{\images\BeautySalon.png}"></p>
+
+<h3>Оставьте своё имя, номер телефона и вид услуги, и мы вам позвоним для уточнения времени.</h3>
+<form method="post" th:action="@{/recording}" th:object="${record}">
+    <label for="name"> Имя: </label>
+    <input type="text" th:field="*{name}">
+    <br/>
+    <label for="phoneNumber"> Номер телефона: </label>
+    <input type="text" th:field="*{phoneNumber}">
+    <br/>
+
+    <select name="type">
+        <option th:each="typeOpt : ${T(salon.dao.Record).getDisplayValue()}"
+                th:value="${typeOpt}" th:text="${typeOpt.name}"></option>
+    </select>
+</form>
+    <!--</form>
+
+
+    <form method="POST" th:action="@{/logout}">
+        <input type="submit" value="Logout">
+    </form>-->
+
+</body>
+</html>
