@@ -26,6 +26,7 @@ public class Record {
 
     enum Type{
         MEN_HAIRCUT("Мужская стрижка"),
+        MEN_BARBER("Услуги барбера"),
         WOMAN_HAIR_DYEING("Окрашивание волос"),
         WOMAN_HAIRCUT("Женская стрижка"),
         WOMAN_NAILS("Ногтевой сервис"),

@@ -5,14 +5,19 @@
     <title>Вход</title>
 </head>
 <body>
+<p><img th:src="@{\images\BeautySalon.png}"></p>
 <h1> Вход в систему </h1>
 <form method="post" th:action="@{/login}" id="loginForm">
-    <label for="username">Username: </label>
+    <label for="username">Логин: </label>
     <input type="text"  name="username" id="username"><br/>
 
-    <label for="password">Password: </label>
+    <label for="password">Пароль: </label>
     <input type="text" name="password" id="password"/><br/>
-    <input type="submit" value="Login"/>
+
+
+    <input type="submit" name="Войти">
+
+    <h4><a th:href="@{/registration}"></a></h4>
 </form>
 
 

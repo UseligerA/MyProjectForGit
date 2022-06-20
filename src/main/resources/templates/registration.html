@@ -5,17 +5,27 @@
     <title>Регистрация</title>
 </head>
 <body>
+<p><img th:src="@{\images\BeautySalon.png}"></p>
 <form method="post" th:action="@{/registration}" id="clientForm">
-
+<div>
     <label for="username">Логин: </label>
-    <input type="text" name="username"/><br/>
-
-    <label for="phonenumber">Телефонный номер: </label>
-    <input type="text" name="username"/><br/>
-
-    <label for="password">Логин: </label>
-    <input type="text" name="username"/><br/>
-
+    <input type="text" name="username" id="username"/><br/>
+</div>
+    <div>
+        <label for="phonenumber">Телефонный номер: </label>
+        <input type="text" name="phoneNumber" id="phoneNumber" /><br/>
+    </div>
+    <div>
+        <label for="password">Пароль: </label>
+        <input type="text" name="password" id="password" /><br/>
+    </div>
+    <div>
+        <label for="passwordConfirm">Повторите пароль: </label>
+        <input type="text" name="passwordConfirm" id="passwordConfirm"/><br/>
+    </div>
+    <div>
+        <input type="submit" name="Зарегистрироваться">
+    </div>
 </form>
 </body>
 </html>

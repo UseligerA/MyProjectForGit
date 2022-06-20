@@ -15,13 +15,13 @@ import java.util.Optional;
 
 @Service
 public class ClientService implements UserDetailsService {
-    /*@PersistenceContext
-    private EntityManager entityManager;*/
-
+    @PersistenceContext
+    private EntityManager entityManager;
+@Autowired
     ClientRepository clientRepository;
- /*   @Autowired
-    RoleRepository roleRepository;*/
-
+   @Autowired
+    RoleRepository roleRepository;
+@Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
@@ -43,13 +43,16 @@ public class ClientService implements UserDetailsService {
     }
 
     public boolean saveClient(Client client){
-        Client clientFromDb = clientRepository.findByUsername(client.getUsername());
+        /*Client clientFromDb = clientRepository.findByUsername(client.getUsername());
 
         if(clientFromDb != null){
             return  false;
-        }
+        }*/
 
         client.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
+        System.out.println(client.getUsername());
+        System.out.println(client.getPassword());
+        System.out.println(client.getRoles());
         client.setPassword(bCryptPasswordEncoder.encode(client.getPassword()));
         clientRepository.save(client);
         return true;

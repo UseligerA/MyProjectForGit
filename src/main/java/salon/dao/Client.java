@@ -2,6 +2,7 @@ package salon.dao;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Transient;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,9 +18,10 @@ import java.util.Set;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
+
 public class Client  implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Size(min = 5, message = "Не меньше 5 знаков")
 private String username;
@@ -36,13 +38,11 @@ public Client(long id,
                   @Size(min = 5, message = "Не меньше 5 знаков") String userName,
                   @Size(min = 5, message = "Не меньше 5 знаков") String password,
                   String passwordConfirm,
-                  Set<Role> roles,
                   String phoneNumber) {
         this.id = id;
         this.username = userName;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
-        this.roles = roles;
         this.phoneNumber = phoneNumber;
     }
 
@@ -91,33 +91,44 @@ public Client(long id,
     }
 
     @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", passwordConfirm='" + passwordConfirm + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
+
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
