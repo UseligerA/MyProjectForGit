@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AdminController {
 @Autowired
     private ClientService clientService;
-
+//some comments
         @GetMapping("/admin")
     public String userList(Model model){
     model.addAttribute("allClients", clientService.allClients());

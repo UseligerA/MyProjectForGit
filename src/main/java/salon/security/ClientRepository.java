@@ -7,5 +7,5 @@ import salon.dao.Client;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
     Client findByUsername(String username);
-
+//some comments
 }

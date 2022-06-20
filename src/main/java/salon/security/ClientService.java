@@ -23,7 +23,7 @@ public class ClientService implements UserDetailsService {
     RoleRepository roleRepository;
 @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    //some comments
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Client client = clientRepository.findByUsername(username);
